@@ -12,6 +12,8 @@ In order to be able to develop this application with a simple and scalable archi
 + Lambdas: Lambdas allows us to create serverless functions that are easy to modify and deploy without the need of any servers. They are also scalable, so if we need to handle more traffic this will not be a problem. Our queries are short so we won't face the Lambda limitation of 15 minutes. I created 4 Lambdas:
     + Metrics updater: It is a scheduled Lambda that runs every minute to collect the latest metrics from Cryptowatch
     + Get available metrics: Retrieves the metrics available for the user to choose, which can be found in the last 24 hours of data
+        + The available metrics are: KRAKEN:BTCUSD, KRAKEN:ETHUSD and KRAKEN:XRPUSD
+        + The available measures are: price, volume, change_percentage (the % of price changed), change_absolute (the absolute price change)
     + Get historical data: Retrieves the last 24 hours of data for a given metric (ie KRAKEN:BTCUSD) and measure (ie price)
     + Get metrics rank: Retrieves the rank of the metrics based on their standard deviation over the last 24 hours
 + EventBridge: We will use EventBridge rules to schedule the Lambda that will gather the data every minute.
@@ -28,7 +30,10 @@ The following APIs are deployed and can be tested:
 2) Get historical data: https://18pdsdqxi7.execute-api.us-east-1.amazonaws.com/pricetracker/historicalprices?metric_name=KRAKEN:BTCUSD&measure_name=price (Note the timezone for the time is UTC, if you want to see the last value inserted you need to scroll down to the bottom)
 3) Get metrics rank: https://18pdsdqxi7.execute-api.us-east-1.amazonaws.com/pricetracker/metricsrank?measure_name=price
 
-The price updater one it is not public but it is being executed every minute and can be checked with the historical prices API.
+The price updater one it is not public but it is being executed every minute and can be checked with the historical prices API or in the following picture it can be seen how it has been executing in the last 3 hours. NOTE: it is only requesting metrics for: KRAKEN:BTCUSD, KRAKEN:ETHUSD and KRAKEN:XRPUSD
+
+![image](https://user-images.githubusercontent.com/4431460/184548318-f3775dfc-2ad4-4150-93ce-c8c01b778160.png)
+
 
 # Things to improve if there was more time:
 
