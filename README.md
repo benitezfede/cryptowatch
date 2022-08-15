@@ -39,6 +39,7 @@ The price updater one it is not public but it is being executed every minute and
 
 # Things to improve if there was more time:
 
++ Improve the format of the output of the API, it contains unnecesary information that can be removed
 + Unit tests should be added to the project
 + Dependency Injection and programming with interfaces (given my lack of Python knowledge I am not sure if there is any framework for this)
 + Make the bulk loading more efficient by loading from a CSV or similar
