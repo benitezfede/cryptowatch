@@ -1,8 +1,6 @@
 # Disclaimer
 
-I have no experience with Python but I decided to make an effort and use it as it is the language being used in Monte Carlo. So it won't be a surprise if there are things that can be better or simpler using other Python modules.
-
-Please also read the section "Things to improve if there was more time" as I mention there what I could have done to make this application more "complete"
+Read the section "Things to improve if there was more time" as I mention there what I could have done to make this application more "complete"
 
 # Architecture
 
